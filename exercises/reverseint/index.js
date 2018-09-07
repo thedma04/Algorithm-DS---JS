@@ -15,7 +15,7 @@ const reverseInt = (num) => {
     .reverse()
     .join('');
 
-  return parseInt(reverse) * Math.sign(num);
+  return parseInt(reverse, 10) * Math.sign(num); // Eslint-Disable
 };
 
 module.exports = reverseInt;
