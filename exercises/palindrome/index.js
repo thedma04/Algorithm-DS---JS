@@ -17,9 +17,20 @@ const palindrome = str => (
 */
 
 /** SECOND SOLUTION using reduce function */
+
+/*
 const palindrome = str => (
   str === str.split('').reduce((reversed, cha) => cha + reversed, '')
-);
+); */
 
+
+//* * THIRD SOLUTION using every */
+// This solution is expensive due to multiple comparism
+
+const palindrome = str => (
+  str
+    .split('')
+    .every((cha, i) => cha === str[str.length - i - 1])
+);
 
 module.exports = palindrome;
