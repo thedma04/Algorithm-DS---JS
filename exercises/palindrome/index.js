@@ -10,8 +10,15 @@
 
 /** FIRST SOLUTION using Reverse Function */
 
+/*
 const palindrome = str => (
   str === str.split('').reverse().join('')
+);
+*/
+
+/** SECOND SOLUTION using reduce function */
+const palindrome = str => (
+  str === str.split('').reduce((reversed, cha) => cha + reversed, '')
 );
 
 
