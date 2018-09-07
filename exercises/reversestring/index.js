@@ -19,16 +19,26 @@ const reverseString = word => (
 module.exports = reverseString;
 */
 
-/** Second Method Using For of Loop */
+// /** Second Method Using For of Loop */
 
-const reverseString = (word) => {
-  let finalWord = '';
+// const reverseString = (word) => {
+//   let finalWord = '';
 
-  for (const cha of word) {
-    finalWord = cha + finalWord; // Remember to add it as first element
-  }
+//   for (const cha of word) {
+//     finalWord = cha + finalWord; // Remember to add it as first element
+//   }
 
-  return finalWord;
-};
+//   return finalWord;
+// };
+
+
+/** Third Solution -- Using Reduce */
+// This is my best solution
+
+const reverseString = word => (
+  word
+    .split('')
+    .reduce((reversed, cha) => cha + reversed, '')
+);
 
 module.exports = reverseString;
