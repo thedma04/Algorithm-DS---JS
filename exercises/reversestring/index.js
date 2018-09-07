@@ -8,12 +8,27 @@
 
 
 //* * First Method -- Using Reverse method of array */
-
+/*
 const reverseString = word => (
   word
     .split('')
     .reverse()
     .join('')
 );
+
+module.exports = reverseString;
+*/
+
+/** Second Method Using For of Loop */
+
+const reverseString = (word) => {
+  let finalWord = '';
+
+  for (const cha of word) {
+    finalWord = cha + finalWord; // Remember to add it as first element
+  }
+
+  return finalWord;
+};
 
 module.exports = reverseString;
