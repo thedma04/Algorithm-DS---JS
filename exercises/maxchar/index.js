@@ -5,23 +5,25 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+
+//* * Solution */
+
 function maxChar(str) {
-   const charsMap = {}
-   let max = 0
-   let maxChar = ''
-   for(let cha of str){
-     charsMap[cha] = charsMap[cha] + 1 || 1
-   }
-   
-   for(let hit in charsMap){
-       if(charsMap[hit] > max){
-           max = charsMap[hit]
-           maxChar = hit
-       }
-   }
-   return maxChar
+  const charMap = {};
+  let max = 0;
+  let maxChar = '';
+
+  // Loop through the string and hierachy them into object
+  for (const cha of str) {
+    charMap[cha] = charMap[cha]++ || 1;
+  }
+
+  Object.entries(charMap).forEach(([txt, num]) => {
+    if (num > max) {
+      max = num;
+      maxChar = txt;
+    }
+  });
+  return maxChar;
 }
-
-
-//maxChar('Hello am here')
 module.exports = maxChar;
