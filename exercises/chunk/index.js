@@ -10,6 +10,7 @@
 
 //* * FIRST SOLUTION */
 
+/*
 function chunk(arr, size) {
   const chunked = [];
 
@@ -23,5 +24,18 @@ function chunk(arr, size) {
     }
   }
   return chunked;
+} */
+
+
+function chunk(arr, size) {
+  let index = 0;
+  const chunked = [];
+  while (index < arr.length) {
+    chunked.push(arr.slice(index, index + size));
+    index += size;
+  }
+
+  return chunked;
 }
+
 module.exports = chunk;
