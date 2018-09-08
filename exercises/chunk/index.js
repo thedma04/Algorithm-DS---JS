@@ -27,11 +27,13 @@ function chunk(arr, size) {
 } */
 
 
+//* * SECOND SOLUTION -- USING SLICE METHOD */
+
 function chunk(arr, size) {
   let index = 0;
   const chunked = [];
   while (index < arr.length) {
-    chunked.push(arr.slice(index, index + size));
+    chunked.push(arr.slice(index, index + size)); // Always add the size to index
     index += size;
   }
 
