@@ -8,7 +8,7 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 /** FIRST SOLUTION */
-
+/*
 function capitalize(str) {
   const words = [];
 
@@ -17,6 +17,24 @@ function capitalize(str) {
   }
 
   return words.join(' ');
+}
+*/
+
+/** SECOND SOLUTION */
+
+// Pattern -- There should be capital letter after every space
+function capitalize(str) {
+  let result = str[0].toUpperCase(); // Capitalize the first words since there is no space before
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i - 1] === ' ') { // Check the previous character if its space the capitalize it
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+
+  return result;
 }
 
 module.exports = capitalize;
