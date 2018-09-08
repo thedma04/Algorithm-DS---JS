@@ -16,36 +16,23 @@
 //       '##  '
 //       '### '
 //       '####'
-// First solution
-// function steps(n) {
-//     for(let row=0; row < n; row++){
-//         let stairs = '';
 
-//         for(let column=0; column < n; column++){
-//           column <= row ? stairs += '#' : stairs += ' '
-//         }
-//         console.log(stairs)
-//     }
-// }
+/** First Solution */
 
-// Using recursive function
-function steps(n, row=0, stairs=''){
-    if(n === row){
-        return 
+function steps(n) {
+  for (let row = 0; row < n; row++) { // First loop through the rows
+    let stairs = '';
+
+    for (let column = 0; column < n; column++) { // Second loop through the columns
+      if (column <= row) { // From the diagram drawn, if column is less than or equal to row add #
+        stairs += '#';
+      } else {
+        stairs += ' ';
+      }
     }
-
-    if(n === stairs.length){
-        console.log(stairs)
-        return steps(n, row + 1)
-    }
-
-    if(stairs.length <= row){
-        stairs += '#'
-    }else {
-        stairs += ' '
-    }
-    steps(n, row, stairs)
+    console.log(stairs);
+  }
 }
 
-steps(5)
+
 module.exports = steps;
