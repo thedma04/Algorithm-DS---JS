@@ -13,8 +13,8 @@ function cleanString(str) {
 }
 
 
-/** SOLUTUTION ONE, USING CHARACTER MAP */
-
+/** FIRST SOLUTION, USING CHARACTER MAP */
+/*
 function buildCharMap(str) {
   const charMap = {};
 
@@ -38,6 +38,12 @@ function anagrams(String1, String2) {
   }
   return true;
 }
+*/
 
+
+/** SECOND SOLUTION using split and sort function */
+const anagrams = (String1, String2) => (
+  cleanString(String1).split('').sort().join('') === cleanString(String2).split('').sort().join('')
+);
 
 module.exports = anagrams;
