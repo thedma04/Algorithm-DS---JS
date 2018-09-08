@@ -8,41 +8,36 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-
-// First solution
-// function anagrams(stringA, stringB) {
-//     aCharMap = charMap(stringA);
-//     bCharMap = charMap(stringB);
-
-//     if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length){ // Checking for length
-//         return false
-//     }
-
-//     for(let cha in aCharMap){
-//         if(aCharMap[cha] !== bCharMap[cha]){
-//             return false
-//         }
-//     }
-//     return true
-// }
-
-// function charMap(str){
-//     const chars = {}
-//     for(let cha of str.replace(/[^\w]/g, "").toLowerCase()){
-//         chars[cha] = chars[cha]++ || 1
-//     }
-
-//     return chars
-// }
-
-
-// Second solution
-
-function anagrams(stringA, stringB){
-    return cleanStrings(stringA) === cleanStrings(stringB)
+function cleanString(str) {
+  return str.replace(/[^\w]/g, '').toLowerCase();
 }
 
-function cleanStrings(str){
-    return str.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
+
+/** SOLUTUTION ONE, USING CHARACTER MAP */
+
+function buildCharMap(str) {
+  const charMap = {};
+
+  for (const cha of str) {
+    charMap[cha] = charMap[cha]++ || 1;
+  }
+  return charMap;
 }
+
+
+function anagrams(String1, String2) {
+  if (cleanString(String1).length !== cleanString(String2).length) {
+    return false;
+  }
+
+  const charMap1 = buildCharMap(String1);
+  const charMap2 = buildCharMap(String2);
+
+  for (const cha in charMap1) {
+    if (charMap1[cha] !== charMap2[cha]) return false;
+  }
+  return true;
+}
+
+
 module.exports = anagrams;
