@@ -8,6 +8,22 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+/* eslint-disable */
 
+class Queue {
+	constructor() {
+		this.data = [];
+	}
+
+	// Add record to the data
+	add(record) {
+		this.data.unshift(record);
+	}
+
+	remove() {
+		return this.data.pop();
+	}
+}
+
+let p = new Queue();
 module.exports = Queue;
