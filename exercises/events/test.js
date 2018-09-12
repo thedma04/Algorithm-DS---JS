@@ -11,6 +11,7 @@ test('Events can be registered then triggered', () => {
   expect(cb1.mock.calls.length).toBe(1);
 });
 
+
 test('Multiple events can be registered then triggered', () => {
   const events = new Events();
 
